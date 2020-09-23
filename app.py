@@ -6,8 +6,8 @@ if os.path.exists("env.py"):
     import env
 
 app = Flask(__name__)
-app.config["MONGO_DBNAME"] = 'FoodRecipes'
-app.config["MONGO_URI"] = 'mongodb+srv://sonia:candy1991@myfirstproject.jnu5z.mongodb.net/FoodRecipes?retryWrites=true&w=majority'
+app.config["MONGO_DBNAME"] = 'recipe_Collections'
+app.config["MONGO_URI"] = 'mongodb+srv://sonia:1991@cluster0.ftc0a.mongodb.net/recipe_Collections?retryWrites=true&w=majority'
 
 
 mongo = PyMongo(app)
@@ -16,6 +16,9 @@ mongo = PyMongo(app)
 @app.route('/get_recipe')
 def get_recipes():
     data = []
+    return render_template("base.html")
+                           
+    
 
 
 if __name__ == '__main__':
