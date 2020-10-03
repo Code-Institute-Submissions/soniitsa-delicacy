@@ -1,119 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="/static/css/style.css"
-      type="text/css"
-    />
+<html>
+<body>
 
-    <title>Recipes</title>
-  </head>
-  <body>
-    <header class="nav-header">
-      <div>
-        <nav
-          class="navbar nav-position fixed-top navbar-expand-md navbar-light site-menu"
-        >
-          <button
-            type="button"
-            style="color: red;"
-            class="navbar-toggler"
-            data-toggle="collapse"
-            data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a href="/get_recipes" class="nav-link"
-                  ><b>Home</b></a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="/edit_recipe" class="nav-link"
-                  ><b>Add Recipe</b></a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="tools" class="nav-link"><b>My Kitchen</b></a>
-              </li>
-            </ul>
-            
-          </div>
-          <a href="/get_recipes" class="brand-logo right"
-              >Recipe Home</a>
-        </nav>
-      </div>
-    </header>
-    <div class="container">
-      
+{% extends 'base.html' %} {% block content %}
 
-<h1>Add Recipe</h1>
+<h4>Add Recipe</h4>
 <!--
         This codes enable to add recipe
         codes copied from materialize
         carefully followed examples from the lession "Add Task"
     -->
 <div class="row">
-  <form action="/insert_recipe" method="POST" class="col s12" id="recipes" name="recipes">
+  <form action="{{ url_for('update_recipe',  recipe_id=recipe._id) }}" method="POST" class="col s12" id="recipes" name="recipes">
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">trip_origin</i>
         <select id="recipe_origin" name="origin_name" required>
           <option value="" disabled selected>Select Origin</option>
-          
-          <option value="Africa">Africa</option>
-          
-          <option value="Asia">Asia</option>
-          
-          <option value="America">America</option>
-          
-          <option value="Australia">Australia</option>
-          
-          <option value="Europe">Europe</option>
-          
+          {% for origin in origin %}
+             {% if origin.origin_name == recipe.origin_name %}
+              <option value="{{origin.origin_name}}" selected >{{origin.origin_name}}</option>
+              {% else %}
+              <option value="{{origin.origin_name}}">{{origin.origin_name}}</option>
+              {% endif %}
+            {% endfor%}
         </select>
-        <label>Recipe Origin</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <i class="material-icons prefix">category</i>
-        <select id="recipe_category" name="category_name" required>
-          <option value="" disabled selected>Select Category</option>
-          
-          <option value="Vegeterian"
-            >Vegeterian</option
-          >
-          
-          <option value="Vegan"
-            >Vegan</option
-          >
-          
-          <option value="Pescatarian"
-            >Pescatarian</option
-          >
-          
-          <option value="Others"
-            >Others</option
-          >
-          
-        </select>
+        
         <label>Recipe Category</label>
       </div>
     </div>
@@ -138,7 +50,7 @@
           name="ingredients"
           class="materialize-textarea"
           required
-        ></textarea>
+        >{{recipe.ingredients}}</textarea>
         <label for="icon_ingredients">Ingredients</label>
       </div>
     </div>
@@ -150,7 +62,7 @@
           name="required_tools"
           class="materialize-textarea"
           required
-        ></textarea>
+        >{{recipe.required_tools}}</textarea>
         <label for="icon_tools">Required Kitchen Tools</label>
       </div>
     </div>
@@ -162,111 +74,59 @@
           name="recipe_descriptions"
           class="materialize-textarea"
           required
-        ></textarea>
+        >{{recipe.recipe_descriptions}}</textarea>
         <label for="icon_preparation">Preparation Steps</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">account_box</i>
-        <input id="full_name" name="full_name" type="text" class="validate" required />
+        <input id="full_name" name="full_name" type="text" class="validate" value="{{recipe.full_name}}" required />
         <label for="icon_name">Full Name</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">email</i>
-        <input id="email" name="email" type="text" class="validate" required />
+        <input id="email" name="email" type="text" class="validate" value="{{recipe.email}}" required />
         <label for="icon_email">Email</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">today</i>
-        <input id="date" name="date" type="text" class="datepicker" required />
+        <input id="date" name="date" type="text" class="datepicker" value="{{recipe.date}}" required />
         <label for="icon_prefix">Date</label>
       </div>
     </div>
     <div class="row">
       <p>
         <label>
-          <input id="i_certify" name="i_certify" type="checkbox" class="filled-in" required />
+        {% if recipe.i_certify %}
+          <input id="i_certify" name="i_certify" type="checkbox" class="filled-in" checked />
+          {% else %}
           <span>I certified that all information provided is true</span>
+        {% endif %}
         </label>
       </p>
     </div>
     <div class="row">
       <button class="btn waves-effect waves-light" type="submit" name="action">
         Send
-        <i class="material-icons right">send</i>
+        <i class="material-icons right">edit</i>
       </button>
     </div>
   </form>
 </div>
 
 
-    </div>
-
-    <hr />
-
-    <!-- Footer -->
-    <!--Acknowlegement of this footer code to the lessons of Thorin and Company-->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <ul class="list-inline text-center">
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-            </ul>
-            <p class="copyright text-muted">
-              Copyright &copy; Your Website 2020
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $(".collapsible").collapsible();
-        $("select").formSelect();
-        $(".datepicker").datepicker();
-      });
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+      /* $(document).ready(function () {
+          date = Date.parsel('{{recipe.date}}');
+        $("#date").pickadate('picker').set('select,date,{format: 'dd/mm/yy' }).trigger('change');
+      });*/
     </script>
-    <script>
-      function myFunction() {
-        var x = document.getElementById("myDIV");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
-      }
-    </script>
-  </body>
+{% endblock %}
+</body>
 </html>
