@@ -4,47 +4,57 @@
 {% block content %}
 <div class="container">
 <div>
-  <h1>World of recipes</h1>
+  <h1>Popular Recipe Categories</h1>
 </div>
 <div class="jumbotron">
   <h5>This planet of ours has some mind-blowing flavours and surprises.Welcome to a world where you can <em><b>create</b></em> any recipe of your choice, <em><b>edit</b></em> them
   for correction and also view other recipes create by others around the globe.</h5>
   <h5>We  also recommend the best cooking tools suitable for your cooking</h5>
-  <h5><em>Make your RECIPES know to the world!!!</em></h5>
+  <h5><em>Find and share everyday cooking inspiration on Allrecipes. Discover recipes, cooks, videos, and how-tos based on the food you love and the friends you follow.</em></h5>
 </div>
 
-<div class="row">
-  <div class="col-md-4">
-    <h2>Summer Menu!</h2>
-    <p>
-      <em>
-        Celebrate summer with our selection of luscious<br> dishes including fresh salads, light main meals,<br> and fruity desserts – perfect for al fresco dining.
-        attraction!
-      </em>
-    </p>
+<div class="container">
+<div class="col-sm-none">              
+<div class="card-group">
+  <div class="card">
+    <img class="img-fluid" src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2020%2F08%2F27%2F7052071_original.jpg&w=600&h=402&c=sc&poi=face&q=85">
+    <div class="card-body">
+      <h5 class="card-title">Recipes for Salmon Fillets</h5>
+      <p class="card-text">Get quick-cooking recipes for baked, grilled, broiled, or steamed salmon.</p>
+      <p><a class="btn btn-sm btn-light" href="">Read More</a></p>
+    </div>
   </div>
+  <div class="card">
+    <img class="img-fluid" src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2020%2F04%2F20%2F1326473.jpg&w=600&h=402&c=sc&poi=face&q=85">
+    <div class="card-body">
+      <h5 class="card-title">Zucchini Bread Recipes
+</h5>
+      <p class="card-text">Move over, banana bread: it's zucchini season. Browse more than 135 ways to make it.</p>
+      <p><a class="btn btn-sm btn-light" href="">Read More</a></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="img-fluid" src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2020%2F08%2F06%2F73987.jpg&w=600&h=402&c=sc&poi=face&q=85">
+    <div class="card-body">
+      <h5 class="card-title">How to Make Chicken Cutlets</h5>
+      <p class="card-text">Chicken breast pieces make piccata, marsala, and schnitzel easy to cook.</p>
+      <p><a class="btn btn-sm btn-light" href="">Read More</a></p>
+       </div>
+     </div>
+</div>
 
-  <div class="col-md-4">
-    <h2>Barbecue Menu!</h2>
-    <p>
-      <em
-        >Cater for your crowd come rain or shine<br> with our sizzling selection of barbecue recipes,<br> including burgers, kebabs, veggie dishes, sauces and sides
-        </em
-      >
-    </p>
-  </div>
-  <div class="col-md-4">
-    <h2>Enjoy Family Time!</h2>
-    <p><em>Treat dad or mum to something extra special everyday.<br> Our recipes include kid-friendly bakes, roast dinners<br> and the ultimate luxury - breakfast in bed.</em></p>
-   </div>
-  </div>
+  <div class="container">
+<div>
+  <h1>Inspiration and Ideas</h1>
+</div>
   <div class="container row">
     <div class="col-md-6">
-      <img class="img-fluid" src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/epic-summer-salad-7539748.jpg?webp=true&quality=90&resize=500%2C454">
+      <img class="img-fluid" src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2020%2F08%2F06%2F55389.jpg&w=600&h=402&c=sc&poi=face&q=85">
     </div>
     <div class="col-md-6"> 
-      <img class="img-fluid" src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/crab-asparagus-pappardelle-69a2b90.jpg?webp=true&quality=90&resize=500%2C454">
-      </div> 
+      <img class="img-fluid" src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2020%2F08%2F06%2F52165.jpg&w=600&h=402&c=sc&poi=face&q=85">
+      </div>
+      <p><a class="btn btn-sm btn-light" href="">Check on our long list of inspiration</a></p> 
   </div>
   <div>
   <h1>COLLECTION OF RECIPES</h1>
@@ -75,7 +85,7 @@
           <p> Recipe Origin: <b>{{recipe.origin_name}}</b> </p>
           <p> Grill: <b>{{recipe.category_name}}</b></p>
           <a
-            href="/delete_recipe/5f7620bb941fa6e04da63bb7"
+            href="/delete_recipe/5f7f64d22bd66c7a792ab882"
             class="waves-effect waves-light btn-small red"
             >Del</a
           >
@@ -111,4 +121,5 @@
    {% endfor %} 
 </div>
 {% endblock %}
+
 </html>
