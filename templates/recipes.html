@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-{% extends "base.html" %}    
+{% extends "base.html" %}
 {% block content %}
 <div class="container">
 <div>
@@ -11,6 +9,7 @@
   for correction and also view other recipes create by others around the globe.</h5>
   <h5>We  also recommend the best cooking tools suitable for your cooking</h5>
   <h5><em>Find and share everyday cooking inspiration on Allrecipes. Discover recipes, cooks, videos, and how-tos based on the food you love and the friends you follow.</em></h5>
+</div>
 </div>
 
 <div class="container">
@@ -60,32 +59,22 @@
   <h1>COLLECTION OF RECIPES</h1>
 </div>
 
+
   {% for recipe in recipes %}
-    {{recipe.origin_name}}
-    {{recipe.category_name}}
-    {{recipe.recipe_name}}
-    {{recipe.ingredients}}
-    {{recipe.recipe_description}}
-    {{recipe.full_name}}
-    {{recipe.email}}
-    {{recipe.date}}
-    {{recipe.i_certify}}
+ 
   <div>
   <h4>{{recipe.full_name}} - {{recipe.date}}</h4>
   </div>
   <ul class="collapsible jumbotron">
-    <li>
-      <div class="collapsible-header">
-        <div class="s3">
-          <i class="material-icons">expand_more</i>
-          
-        </div>
-        <div class="recipe_info s9">
-         <p> Recipe Name: <b>{{recipe.recipe_name}}</b> </p>
-          <p> Recipe Origin: <b>{{recipe.origin_name}}</b> </p>
-          <p> Grill: <b>{{recipe.category_name}}</b></p>
+  <p> Recipe Name: <b>Roasted beetroot & goat's cheese salad</b> </p>
+          <p> Recipe Origin: <b>Autralia</b> </p>
+          <p> Category: <b>Vegeterian</b></p>
+  <div class="recipe_info s9">
+
+
           <a
-            href="/delete_recipe/5f7f64d22bd66c7a792ab882"
+            href="/delete_recipe/5f8494c20f32bb8991e4308d
+"
             class="waves-effect waves-light btn-small red"
             >Del</a
           >
@@ -95,7 +84,7 @@
             >Edit</a
           >
         </div>
-      </div>
+            
       <div class="collapsible-body">
         <span>
          <b>INGREDIENTS:</b> {{recipe.ingredients}}
@@ -116,10 +105,9 @@
           <b>EMAIL:</b> {{recipe.email}}
         </span>
       </div>
-    </li>
-  </ul>
+
    {% endfor %} 
-</div>
+
 {% endblock %}
 
 </html>
