@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container">
 <div>
-  <h1>Popular Recipe Categories</h1>
+  <h1>World food recipes</h1>
 </div>
 <div class="jumbotron">
   <h5>This planet of ours has some mind-blowing flavours and surprises.Welcome to a world where you can <em><b>create</b></em> any recipe of your choice, <em><b>edit</b></em> them
@@ -67,7 +67,7 @@
   </div>
   <ul class="collapsible jumbotron">
   <p> Recipe Name: <b>Roasted beetroot & goat's cheese salad</b> </p>
-          <p> Recipe Origin: <b>Autralia</b> </p>
+          <p> Recipe Origin: <b>Australia</b> </p>
           <p> Category: <b>Vegeterian</b></p>
   <div class="recipe_info s9">
 
@@ -105,6 +105,52 @@
           <b>EMAIL:</b> {{recipe.email}}
         </span>
       </div>
+         
+  </ul>
+   
+    </div>
+
+    <hr />
+
+      <!-- Footer -->
+    <!--Acknowlegement of this footer code to the lessons of Thorin and Company-->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">
+              Copyright &copy; Your Website 2020
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
    {% endfor %} 
 
