@@ -17,7 +17,7 @@ throughout the development of the this website i ensured that i kept the user in
 3 Valuable to the users and the product owner.
 
 FEATURES:
-delicacy website has three pages which are namely:
+delicacy app has three pages which are namely:
 
 Home: This page you can find ideas of full of exciting tried-and-tested recipes, inspiration, ideas, tips on diffrend foods.
 
